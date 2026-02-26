@@ -1,11 +1,18 @@
 # app/controllers/categories_controller.rb
 class CategoriesController < ApplicationController
   before_action :authenticate_user!          # Devise auth
-  before_action :set_category, only: %i[show edit update destroy]
+  #before_action :set_category, only: %i[show edit update destroy]
 
-  def index
+ # def index
+ # @categories = Category.all
+ # @transactions = Transaction.all
+ # end
+
+ def index
     @categories = current_user.categories
+    @transactions = current_user.transactions
   end
+
 
   def show
   end

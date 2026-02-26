@@ -1,4 +1,11 @@
 <h1>New Category</h1>
+<%= link_to "Back", categories_path %>
+
+<h1>New Transaction</h1>
+
+<%= render "form", transaction: @transaction %>
+
+<%= link_to "Back", transactions_path %>
 
 <%= form_with model: @category do |f| %>
   <div>
@@ -10,5 +17,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-<%= link_to "Back", categories_path %>

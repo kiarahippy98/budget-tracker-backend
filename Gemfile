@@ -47,3 +47,5 @@ group :development, :test do
 end
 
 gem "devise", "~> 5.0"
+gem 'sass-rails', '>= 6'
+gem 'importmap-rails'

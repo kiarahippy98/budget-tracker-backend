@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_25_082749) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_25_215542) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -24,6 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_25_082749) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transaction_type"
     t.index ["catergory_id"], name: "index_transactions_on_catergory_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
@@ -41,6 +44,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_25_082749) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "users"
   add_foreign_key "transactions", "catergories"
   add_foreign_key "transactions", "users"
 end
